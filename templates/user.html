@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+<title>User</title>
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron jumbotron-fluid bg-info display-4 text-white p-5">
+  <i class="far fa-address-book"></i>
+  User
+</div>
+
+<div class="container-fluid">
+  <div class="card text-left w-50 mx-auto p-3 mt-5">
+    {% for user in users %}
+      <div class="row">
+        <div class="col-lg-8">
+          <h4>{{user.name}}</h4>
+        </div>
+        {% if not user.id == current_user.id %}
+        <div class="col-lg-4 text-right">
+          <a href="/add_following/{{user.id}}" class="btn btn-outline-success">Follow</a>
+          <a href="/del_following/{{user.id}}" class="btn btn-outline-danger">UnFollow</a>
+        </div>
+        {% endif %}
+      </div>
+      <div class="border-top my-3"></div>
+    {% endfor %}
+  </div>  
+</div>
+{% endblock %}

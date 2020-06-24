@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+<title>Update Tweet</title>
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron jumbotron-fluid bg-warning display-4 text-white p-5">
+  <i class="far fa-address-book"></i>
+  Tweet
+</div>
+
+<div class="container-fluid w-50 mx-auto">    
+  <div class="card bg-secondary text-light p-3">
+    <div class="card-body">
+      <p>tweet</p>
+      <form action="/upd_post/{{post.id}}" method="post">
+        <div class="form-group">
+          <input type="text" name="title" class="form-control" value="{{post.title}}">
+          <input type="text" name="content" class="form-control" value="{{post.content}}">
+        </div>
+        <div class="form-group text-right mb-0">
+          <input type="submit" value="Update" class="btn btn-outline-light">
+        </div>
+      </form>
+    </div>
+  </div>          
+</div>
+{% endblock %}

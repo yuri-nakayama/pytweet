@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+<title>Profile</title>
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron jumbotron-fluid bg-info display-4 text-white p-5">
+  <i class="far fa-address-book"></i>
+  Profile
+</div>
+
+<div class="container-fluid w-50 mx-auto">    
+  <div class="card">
+    <div class="card-header">
+      Update
+    </div>
+    <div class="card-body text-center">
+      <form action="/upd_user/{{current_user.id}}" method="post">
+        <div class="form-group">
+          <input type="text" class="form-control" name="username" value="{{user.name}}">
+          <br>
+          <input type="email" class="form-control" name="email" value="{{user.email}}">
+          <br>
+          <input type="text" class="form-control" name="bio" value="{{user.bio}}">
+          <br>
+          <input type="submit" class="btn btn-primary" value="Update">
+          <a href="/get_user2/{{current_user.id}}" class="btn btn-danger">Delete</a>
+        </div>
+      </form>
+    </div>
+  </div>          
+</div>
+{% endblock %}

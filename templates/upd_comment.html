@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+<title>Update Comment</title>
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron jumbotron-fluid bg-warning display-4 text-white p-5">
+  <i class="far fa-address-book"></i>
+  Comment
+</div>
+
+<div class="container-fluid w-50 mx-auto">    
+  <div class="card bg-warning text-light p-3">
+    <div class="card-body">
+      <p>comment</p>
+      <form action="/upd_comment/{{comment.id}}" method="post">
+        <div class="form-group">
+          <input type="text" name="text" class="form-control" value="{{comment.comment}}">
+        </div>
+        <div class="form-group text-right mb-0">
+          <input type="submit" value="Update" class="btn btn-outline-light">
+        </div>
+      </form>
+    </div>
+  </div>          
+</div>
+{% endblock %}
